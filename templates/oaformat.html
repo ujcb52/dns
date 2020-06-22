@@ -1,0 +1,29 @@
+{% include 'frame-header.html' %}
+            <div class="form-group">
+                <label for="fqdn">FQDN</label>
+                <input type="text" class="form-control" id="fqdn" placeholder="wiki.11stcorp.com">
+            </div>
+            <div class="form-group">
+                <label for="ip">IP</label>
+                <input type="text" class="form-control" id="ip" placeholder="172.19.108.57">
+            </div>
+            <button type="button" class="btn btn-primary bottom20" id="printOAFormatBtn">출력</button>
+            <div id="result"></div>
+            <div id="info">
+                <b><ins>※ 참고 사항</ins></b><br>
+                1. 신규 Zone 추가시 필요한 Command 작업을 단순 출력해주는 기능<br>
+                2. OA DNS는 되도록 등록을 지양하며, 부득이 외부와 내부에서 다른 IP로 해석되어야 하는 경우에만 등록
+                <div id="nsInfo">
+                    <b><ins>※ 서버 정보</ins></b>
+                    <table class="table">
+                        <thead>
+                            <tr><th>Hostname</th><th>IP</th><th>Role</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>MGMTa-dns01</td><td>10.40.226.29</td><td>Master</td></tr>
+                            <tr><td>MGMTa-dns02</td><td>10.40.226.30</td><td>Slave</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+{% include 'frame-footer.html' %}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block breadcrumbs %}
+<div>
+  <nav>
+  <ul class="nav navbar-nav titleText">
+    <li><a href="{{ url_for('zones.zones_list') }}"><font size="3px">Zones [Home]</font></a></li>
+    <li><a href="{{ url_for('zones.zones_delete', zone_id=zone_id) }}"><font size="5px">Delete zone "{{ zone['Name'] }}"</font></a></li>
+  </ul>
+  </nav>
+</div>
+{% endblock %}
+
+{% block body %}
+<h2><font color="white">.</font></h2>
+<h2>Delete zone "{{ zone['Name'] }}"</h2>
+<p>Are you sure?</p>
+{% if error %}
+<p class="error">{{ error.error_message }}</p>
+{% endif %}
+<form action="{{ url_for('zones.zones_delete', zone_id=zone_id) }}" method="post" accept-charset="utf-8">
+  <input type="hidden" name="delete" value="delete" />
+  <p>
+    <button type="submit">Yes</button>
+    <a class="button" href="{{ url_for('zones.zones_list') }}">No</a>
+  </p>
+</form>
+{% endblock %}

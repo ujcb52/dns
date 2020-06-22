@@ -1,0 +1,22 @@
+{% include 'frame-header.html' %}
+            <div class="form-group">
+                <label for="input">CDN Failure Change</label>
+                <div id="buttons">
+                    <button type="button" class="btn btn-warning" id="checkcdnBtn">조회</button>
+                    <button type="button" class="btn btn-primary" id="setchangecdnBtn">설정변경</button>
+                    <button type="button" class="btn btn-primary" id="setreturncdnBtn">설정원복</button>
+		</div>
+            </div>
+            <div id="result"></div>
+            <div id="info">
+            <b><ins>※ 참고 사항</ins></b><br>
+SKCDN 값이 정상 설정입니다. 응급 상황에서만  ORIGIN IP OR CLOUDFRONT 값으로 변경합니다.<br>
+                <table class="table">
+                     <thead>
+                         <tr><th>FQDN</th><th>SKCDN</th><th>Emergency</th></tr>
+                     </thead>
+                     <tbody>
+                     </tbody>
+                 </table>
+            </div>
+{% include 'frame-footer.html' %}

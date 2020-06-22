@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block breadcrumbs %}
+<div>
+  <nav>
+  <ul class="nav navbar-nav titleText">
+    <li><a href="{{ url_for('zones.zones_list') }}"><font size="5px">Zones [Home]</font></a></li>
+    <li><a href="{{ url_for('zones.zones_new') }}"><font size=3px>Add new zone</font></a></li>
+  </ul>
+  </nav>
+</div>
+{% endblock %}
+
+{% block body %}
+<div>
+<table class="table table-bordered">
+  {% for zone in zones %}
+    <tr>
+      <td>
+        <div>
+          <a href="{{ url_for('zones.zones_detail', zone_id=zone['Id']|shortid) }}"><font size="4px">{{ zone['Name'] }}</font> [Info]</a>
+          <a href="{{ url_for('zones.zones_records', zone_id=zone['Id']|shortid) }}">&nbsp[Records]</a>
+          <a href="{{ url_for('records.records_new', zone_id=zone['Id']|shortid) }}">[Add new record]</a>
+      </td>
+      <td width="10">
+        <div>
+          <a href="{{ url_for('zones.zones_clone', zone_id=zone['Id']|shortid) }}">[Clone]</a>
+        </div>
+      </td>
+      <td width="10">
+        <div>
+          <a href="{{ url_for('zones.zones_delete', zone_id=zone['Id']|shortid) }}">[Delete]</a>
+        </div>
+      </td>
+    </tr>
+  {% endfor %}
+</table>
+</div>
+{% endblock %}

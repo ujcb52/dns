@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block breadcrumbs %}
+<div>
+  <nav>
+  <ul class="nav navbar-nav titleText">
+    <li><a href="{{ url_for('zones.zones_list') }}"><font size="3px">Zones [Home]</font></a></li>
+    <li><a href="{{ url_for('zones.zones_detail', zone_id=zone['Id']|shortid) }}"><font size=5px>{{ zone['Name'] }}</font></a></li>
+  </ul>
+  </nav>
+</div>
+{% endblock %}
+
+{% block body %}
+<h2><font color="white">.</font></h2>
+<h2>Hosted Zone "{{ zone['Name'] }}"</h2>
+<dl>
+  <dt>Id:</dt>
+  <dd>{{ zone['Id']|shortid }}</dd>
+  <dt>Nameservers:</dt>
+  {% for ns in nameservers %}
+  <dd>{{ ns }}</dd>
+  {% endfor %}
+</dl>
+{% endblock %}

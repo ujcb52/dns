@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block breadcrumbs %}
+<div>
+  <nav>
+  <ul class="nav navbar-nav titleText">
+    <li><a href="{{ url_for('zones.zones_list') }}"><font size="3px">Zones [Home]</font></a></li>
+    <li><a href="{{ url_for('zones.zones_records', zone_id=zone_id) }}"><font size="3px">Records for {{ zone['Name'] }}</font></a></li>
+    <li><a href="{{ url_for('records.records_delete', zone_id=zone_id) }}"><font size="5px">Delete record {{ val_dict['type'] }} {{ val_dict['name'] }}</font></a></li>
+  </ul>
+  </nav>
+</div>
+{% endblock %}
+
+{% block body %}
+<h2><font color="white">.</font></h2>
+<h2>Delete record</h2>
+{% if error %}
+<p class="error">{{ error.error_message }}</p>
+{% endif %}
+<form action="{{ url_for('records.records_delete', zone_id=zone_id) }}" method="post" accept-charset="utf-8">
+  <p>Are you sure?</p>
+  <input type="hidden" value="{{ val_dict['name'] }}" name="data_name" />
+  <input type="hidden" value="{{ val_dict['type'] }}" name="data_type" />
+  <input type="hidden" value="{{ val_dict['ttl'] }}" name="data_ttl" />
+  <input type="hidden" value="{{ alias_hosted_zone_id }}" name="data_alias_hosted_zone_id" />
+  <input type="hidden" value="{{ alias_dns_name }}" name="data_alias_dns_name" />
+  {% for value in values %}
+  <input type="hidden" value="{{ value }}" name="data_value" />
+  {% endfor %}
+  <p>
+    <button type="submit">Yes</button>
+    <a class="button" href="{{ url_for('zones.zones_records', zone_id=zone_id) }}">No</a>
+  </p>
+</form>
+{% endblock %}

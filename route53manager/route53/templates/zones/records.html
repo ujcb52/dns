@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block breadcrumbs %}
+<div>
+  <nav>
+  <ul class="nav navbar-nav titleText">
+    <li><a href="{{ url_for('zones.zones_list') }}"><font size="3px">Zones [Home]</font></a></li>
+    <li><a href="{{ url_for('zones.zones_records', zone_id=zone_id) }}"><font size="5px">Records for {{ zone['Name'] }}</font></a></li>
+    <li><a href="{{ url_for('records.records_new', zone_id=zone_id) }}"><font size="3px">Add new record</font></a></li>
+  </ul>
+  </nav>
+</div>
+{% endblock %}
+
+{% block body %}
+<h2><font color="white">.</font></h2>
+<h2>Hosted Zone "{{ zone['Name'] }}"</h2>
+<p></p>
+{% if groups %}
+{% for groupname, recordsets in groups %}
+<h3>{{ groupname }}</h3>
+<div>
+<table class="table table-bordered">
+{% for recordset in recordsets %}
+<tr>
+<td width="170">{{ recordset.name }}</td>
+<td width="40">{{ recordset.ttl }}</td>
+<td>
+  <ul>
+    {% for value in recordset.resource_records %}
+    <li>{{ value }}</li>
+    {% endfor %}
+    {% if recordset.alias_dns_name and recordset.alias_hosted_zone_id %}
+    <li>{{ recordset.to_print() }}</li>
+    {% endif %}
+  </ul>
+</td>
+{% if recordset.resource_records %}
+<td width="10"><a href="{{ url_for('records.records_update', zone_id=zone_id) }}?type={{ recordset.type|urlencode }}&amp;name={{ recordset.name|urlencode }}{% for value in recordset.resource_records %}&amp;value={{ value|urlencode }}{% endfor %}&amp;ttl={{ recordset.ttl }}">Update</a></td>
+<td width="10"><a href="{{ url_for('records.records_delete', zone_id=zone_id) }}?type={{ recordset.type|urlencode }}&amp;name={{ recordset.name|urlencode }}{% for value in recordset.resource_records %}&amp;value={{ value|urlencode }}{% endfor %}&amp;ttl={{ recordset.ttl }}{% if recordset.alias_dns_name %}&amp;alias_dns_name={{ recordset.alias_dns_name|urlencode }}{% endif %}{% if recordset.alias_hosted_zone_id %}&amp;alias_hosted_zone_id={{ recordset.alias_hosted_zone_id|urlencode }}{% endif %}">Delete</a></td>
+{% else %}
+<td><em>(This record cannot be edited)</em></td>
+{% endif %}
+</tr>
+{% endfor %}
+</table>
+</div>
+{% endfor %}
+{% endif %}
+{% endblock %}

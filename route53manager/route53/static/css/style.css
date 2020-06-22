@@ -1,0 +1,93 @@
+label {
+    font-size: 18px;
+}
+
+th, td {
+    vertical-align: middle !important;
+}
+
+.pre {
+    white-space: pre;
+    padding: 2px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+#container {
+    margin: 50px auto;
+    width: 1024px;
+}
+
+#skpImage {
+    margin-bottom: 10px;
+}
+
+#selectTextBtn {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#nsInfo {
+    width: 480px;
+    margin-top: 10px;
+}
+
+.greyBox {
+    border: 1px solid #ddd;
+}
+
+.bottom20 {
+    margin-bottom: 20px;
+}
+
+#title {
+    display: inline-block;
+    margin: 14px;
+    color: #cccccc;
+}
+
+#userInfo {
+    display: inline-block;
+    margin: 14px;
+    color: #cccccc;
+}
+
+#logoutBtn {
+    display: inline-block;
+    margin-right: 14px;
+}
+
+#result {
+    margin-bottom: 20px;
+}
+
+#buttons {
+    margin-top: 10px;
+}
+
+.right-float {
+    float: right;
+}
+
+#addBtn {
+    margin-left: 10px;
+}
+
+#deleteBtn {
+    margin: auto;
+    display: block;
+}
+
+.checkbox-mini {
+    margin: 0;
+    text-align: center;
+}
+
+.titleText {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+}
+

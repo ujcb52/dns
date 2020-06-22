@@ -1,0 +1,36 @@
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif,'Malgun Gothic';
+    display: flex;
+}
+
+table {
+    width: 260px;
+    margin: 100px auto;
+}
+
+td {
+    text-align: center;
+}
+
+img {
+    vertical-align: middle;
+}
+
+#loginTitle {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+#inputID {
+    margin-bottom: 5px;
+}
+
+#loginBtn {
+    width: 72px;
+    height: 72px;
+    margin-left: 5px;
+    padding: 0;
+    text-align: center;
+}

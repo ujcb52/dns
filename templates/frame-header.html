@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DNS Admin</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <meta http-equiv="Cache-Control" content="No-Cache"/>
+        <link rel=stylesheet type=text/css href="static/css/bootstrap.min.css">
+        <link rel=stylesheet type=text/css href="static/css/bootstrap-theme.min.css">
+        <link rel=stylesheet type=text/css href="static/css/style.css">
+    </head>
+    <body>
+        <div id="container">
+            <a href="/dns/"><img src="static/image/11stcorp.png" id="skpImage"></a>
+            <nav class="navbar navbar-inverse">
+                <ul class="nav navbar-nav titleText">
+                    <li class="active"><a href="/dns/">DNS Admin</a></li>
+                    <li id="formatMenu"><a href="format">New Zone</a></li>
+                    <li id="oaFormatMenu"><a href="oaformat">OA New Zone</a></li>
+                    <li id="route53Menu"><a href="https://route53dns.11stcorp.com">Route53</a></li>
+                    <li id="swapMenu"><a href="swap">SWAP page</a></li>
+		    <li id="cdnMenu"><a href="cdn">CDN</a></li>
+                </ul>
+                <div class="right-float">
+                    <p id="userInfo" class="titleText">{{ session['uid'] }} {{ session['name'] }}</p>
+                    <a href="logout"><button id="logoutBtn" type="button" class="btn btn-success"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> 로그아웃</button></a>
+                </div>
+            </nav>

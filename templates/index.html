@@ -1,0 +1,25 @@
+{% include 'frame-header.html' %}
+            <div class="form-group">
+                <label for="itsm">ITSM</label>
+                <input type="text" class="form-control" id="itsm" placeholder="DNS-0000">
+            </div>
+            <div class="form-group">
+                <label for="input">FQDN IP</label>
+                <textarea class="form-control" rows="5" id="input" placeholder="www.11stcorp.com 124.66.183.38
+itsm.11stcorp.com 172.21.4.232
+jira.11stcorp.com 1.234.67.98"></textarea>
+                <div id="buttons">
+                    <button type="button" class="btn btn-warning" id="checkBtn">조회</button>
+                    <button type="button" class="btn btn-primary" id="addBtn">추가</button>
+                </div>
+            </div>
+            <div id="result"></div>
+            <div id="info">
+                <b><ins>※ 참고 사항</ins></b><br>
+                1. A Record 추가, 삭제 작업은 단일 도메인에 한해 지원합니다.<br>
+                2. CNAME, MX, TXT 등은 서버에서 수동으로 작업해주세요.<br>
+		3. 도메인 자체에 대한 A Record(11stcorp.com 124.66.183.38)는 서버에서 수동으로 작업해주세요.<br>
+		4. dig Field는 DNSi-mgmt01 서버에서 각 네임서버로 질의한 결과입니다. (dig timeout 2s)<br>
+                &nbsp&nbsp&nbsp cdns 에서는 ttl 갱신 시간에 맞게 반영됩니다.
+            </div>
+{% include 'frame-footer.html' %}

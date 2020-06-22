@@ -1,0 +1,38 @@
+{% include 'frame-header.html' %}
+      <div class="heading">
+        <h1><a href="{{ url_for('main.index') }}">Route 53 Manager</a></h1>
+        <div class="toolbar">
+        <ul>
+          {% if request.authorization.username %}
+          <li>Welcome, {{ request.authorization.username }}</li>
+          {% endif %}
+<!--          {% block toolbar %}
+          <li><a href="{{ url_for('slicehost.index') }}">Import from Slicehost</a></li>
+          {% endblock %}-->
+        </ul>
+      </div>
+      </div>
+      <div class="breadcrumbs">
+        {% block breadcrumbs %}
+        {% endblock %}
+      </div>
+      <div class="messages">
+      <ul>
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <ul class="flashes">
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+          </ul>
+        {% endif %}
+      {% endwith %}
+      </ul>
+      </div>
+
+      <div class="body">
+      {% block body %}
+      {% endblock %}
+      </div>
+{% include 'frame-footer.html' %}
+</html>
